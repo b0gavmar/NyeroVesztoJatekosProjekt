@@ -30,11 +30,6 @@ namespace NyeroVesztoJatekosProjekt.Models
             Score = startingScore;
         }
 
-        public void ChangeScore(int point)
-        {
-
-        }
-
         public void Win(int points)
         {   
             if(Lost)
@@ -65,17 +60,17 @@ namespace NyeroVesztoJatekosProjekt.Models
 
         public string CompareWith(Player player2)
         {
-            if(this.Lost)
+            if (this.Lost && player2.Lost)
+            {
+                throw new Exception($"{this.Name} és {player2.Name} nevű játékosok már kiestek a játékból!");
+            }
+            else if (this.Lost)
             {
                 throw new Exception($"{this.Name} nevű játékos már kiesett a játékból!");
             }
             else if (player2.Lost)
             {
                 throw new Exception($"{player2.Name} nevű játékos már kiesett a játékból!");
-            }
-            else if (this.Lost && player2.Lost)
-            {
-                throw new Exception($"{this.Name} és {player2.Name} nevű játékosok már kiesett a játékból!");
             }
 
             if (this.Score > player2.Score)
@@ -91,8 +86,6 @@ namespace NyeroVesztoJatekosProjekt.Models
                 return $"{this.Name} és {player2.Name} pontszáma egyezik, pontszámuk: {this.Score}!";
             }
         }
-
-
 
         public override string ToString()
         {
