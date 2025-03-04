@@ -21,3 +21,12 @@ janos.ChangeScore(30);
 Console.WriteLine($"{janos.Name} {janos.WinCount} alkalommal nyert!");
 janos.ChangeScore(-40);
 Console.WriteLine($"{janos.IsWinningString} Aktuális pontszáma: {janos.Score}\n");
+
+Console.WriteLine("\n");
+
+// 3. feladat
+Player viktor = new Player("Vesztő Viktor", "vesztoviktor@vesztes.hu", 40);
+viktor.ChangeScore(20);
+viktor.ChangeScore(-30);
+viktor.ChangeScore(-10);
+Console.WriteLine($"{viktor.IsWinningString}");
