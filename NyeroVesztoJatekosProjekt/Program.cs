@@ -20,7 +20,7 @@ janos.ChangeScore(20);
 janos.ChangeScore(30);
 Console.WriteLine($"{janos.Name} {janos.WinCount} alkalommal nyert!");
 janos.ChangeScore(-40);
-Console.WriteLine($"{janos.IsWinningString} Aktuális pontszáma: {janos.Score}\n");
+Console.WriteLine($"{janos.IsWinningString} Aktuális pontszáma: {janos.Score}");
 
 Console.WriteLine("\n");
 
@@ -30,3 +30,8 @@ viktor.ChangeScore(20);
 viktor.ChangeScore(-30);
 viktor.ChangeScore(-10);
 Console.WriteLine($"{viktor.IsWinningString}");
+
+Console.WriteLine("\n");
+
+// 4. feladat
+Console.WriteLine(janos.CompareWith(viktor));
