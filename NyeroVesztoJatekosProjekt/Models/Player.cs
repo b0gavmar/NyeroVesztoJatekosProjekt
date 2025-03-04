@@ -63,12 +63,10 @@ namespace NyeroVesztoJatekosProjekt.Models
 
             if (this.Score > player2.Score)
             {
-                //return $"{this.Name} a győztes pontszám alapján!";
                 return $"{this.Name} --> {this.Score} pont";
             }
             else if(this.Score < player2.Score)
             {
-                //return $"{player2.Name} a győztes pontszám alapján!";
                 return $"{player2.Name} --> {player2.Score} pont";
             }
             else

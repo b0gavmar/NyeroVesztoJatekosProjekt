@@ -35,3 +35,24 @@ Console.WriteLine("\n");
 
 // 4. feladat
 Console.WriteLine(janos.CompareWith(viktor));
+
+Console.WriteLine("\n");
+
+// 5. feladat
+viktor.ChangeScore(-60);
+try
+{
+    viktor.ChangeScore(10);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+try
+{
+    Console.WriteLine(janos.CompareWith(viktor));
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
