@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace NyeroVesztoJatekosProjekt.Models
         {
             if(startingScore < 0)
             {
-                throw new Exception("Nem kezdhet a játékos negatív pontszámmal!");
+                throw new ArgumentException("Nem kezdhet a játékos negatív pontszámmal!");
             }
             Name = name;
             Email = email;
@@ -31,19 +32,35 @@ namespace NyeroVesztoJatekosProjekt.Models
 
         public void ChangeScore(int point)
         {
+
+        }
+
+        public void Win(int points)
+        {   
             if(Lost)
             {
-                throw new Exception($"{Name} nevű játékos már kiesett a játékból!");
+                throw new Exception($"{Name} nevű játékos már kiesett a játékból, nem tud tovább játszani!");
             }
-            Score += point;
-            if(point > 0)
+            else if (points <= 0)
             {
-                WinCount++;
+                throw new Exception("Nem lehet negatív vagy 0 pontot nyerni!");
             }
-            else if(point < 0)
+            Score += points;
+            WinCount++;
+        }
+
+        public void Lose(int points)
+        {
+            if (Lost)
             {
-                LossCount++;
+                throw new Exception($"{Name} nevű játékos már kiesett a játékból, nem tud tovább játszani!");
             }
+            else if (points <= 0)
+            {
+                throw new Exception("Nem lehet negatív vagy 0 pontot veszíteni!");
+            }
+            Score -= points;
+            LossCount++;
         }
 
         public string CompareWith(Player player2)

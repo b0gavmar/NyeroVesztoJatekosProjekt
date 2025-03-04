@@ -16,19 +16,19 @@ Console.WriteLine(janos);
 Console.WriteLine("\n");
 
 // 2. feladat
-janos.ChangeScore(20);
-janos.ChangeScore(30);
+janos.Win(20);
+janos.Win(30);
 Console.WriteLine($"{janos.Name} {janos.WinCount} alkalommal nyert!");
-janos.ChangeScore(-40);
+janos.Lose(40);
 Console.WriteLine($"{janos.IsWinningString} Aktuális pontszáma: {janos.Score}");
 
 Console.WriteLine("\n");
 
 // 3. feladat
 Player viktor = new Player("Vesztő Viktor", "vesztoviktor@vesztes.hu", 40);
-viktor.ChangeScore(20);
-viktor.ChangeScore(-30);
-viktor.ChangeScore(-10);
+viktor.Win(20);
+viktor.Lose(30);
+viktor.Lose(10);
 Console.WriteLine($"{viktor.IsWinningString}");
 
 Console.WriteLine("\n");
@@ -39,18 +39,19 @@ Console.WriteLine(janos.CompareWith(viktor));
 Console.WriteLine("\n");
 
 // 5. feladat
-viktor.ChangeScore(-60);
+
 try
 {
-    viktor.ChangeScore(10);
+    viktor.Win(-10);
 }
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
+viktor.Lose(60);
 try
 {
-    Console.WriteLine(janos.CompareWith(viktor));
+    viktor.Lose(-10);
 }
 catch(Exception ex)
 {
